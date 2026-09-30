@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta name="google-site-verification" content="AIxCqfP8B_xXgqpt6na-ik4jqBNrJKWfNjy0zj38foo" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magne Invest - Agence Immobilière Abidjan</title>
+<link rel="manifest" href="manifest.json">
+<meta name="description" content="Magne Invest Immobilier Abidjan - Terrains ACD, Villas, Gestion locative">
+<link rel="apple-touch-icon" href="images/icon-192.png">
+<meta name="theme-color" content="#111111">
+<style>
+body{font-family:Arial; margin:0; background:#fff; color:#111;}
+header{background:#0a1931; color:#fff; padding:15px 25px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;}
+header .logo-box{display:flex; align-items:center; gap:15px;}
+header img{width:200px; height:auto; background:#fff; padding:8px; border-radius:12px;}
+.etoiles{color:#FFD700; font-size:18px; letter-spacing:2px; text-shadow:0 0 5px rgba(255,215,0,0.6);}
+.hero-search{background:#f5f1e8; padding:40px 20px; text-align:center;}
+.hero-search h1{font-size:28px;}
+.search-bar{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px;}
+.search-bar select, .search-bar button{padding:12px; border-radius:8px; border:1px solid #ccc;}
+.search-bar button{background:#111; color:#fff; font-weight:bold; cursor:pointer;}
+.stats{display:flex; justify-content:space-around; text-align:center; padding:20px; background:#111; color:#fff; margin:20px 0;}
+.stats strong{font-size:22px; display:block; color:#FFD700;}
+.hero{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; padding:20px;}
+.hero img{width:100%; height:180px!important; object-fit:cover; border-radius:12px;}
+.galerie{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; padding:20px;}
+.galerie img{width:100%!important; height:130px!important; object-fit:cover!important; border-radius:10px;}
+.box{background:#f5f1e8; padding:20px; border-radius:14px; margin:20px; text-align:center; border:1px solid #e5dcc3;}
+.statut{padding:6px 12px; border-radius:20px; font-weight:bold; font-size:13px; display:inline-block; margin-bottom:10px;}
+.ouvert{background:#00c950; color:#fff;}.ferme-now{background:#ff3b3b; color:#fff;}
+.liste-horaire{list-style:none; padding:0; max-width:350px; margin:10px auto; text-align:left;}
+.liste-horaire li{display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid #ddd; font-size:14px;}
+#qrcode{display:flex; justify-content:center; margin:15px 0;}
+.btn-wa{display:inline-block; padding:12px 18px; border-radius:8px; text-decoration:none; font-weight:bold; margin:5px;}
+.btn-wa1{background:#25D366; color:#fff;}.btn-wa2{background:#111; color:#fff;}
+footer{background:#111; color:#aaa; padding:30px 20px; text-align:center; margin-top:30px;}
+footer a{color:#fff;}
+.btn-float-wa{position:fixed; bottom:20px; right:20px; background:#25D366; color:#fff; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:30px; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.3); z-index:999;}
+.btn-rdv{position:fixed; bottom:90px; right:20px; background:#b8960c; color:#fff; padding:12px 18px; border-radius:30px; font-weight:bold; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.3); z-index:999; font-size:14px;}
+.galerie img {width:100%!important; height:220px!important; object-fit:cover!important; display:block;}
+.card-bien{background:white; border-radius:12px; padding:20px; width:300px; box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+.video-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:15px; margin-top:20px;}
+.video-grid iframe, .video-grid video{width:100%; height:280px; border-radius:12px; border:none; background:#000;}
+.card-bien.non-dispo{opacity:0.6; position:relative; filter:grayscale(0.5);}
+.card-bien.non-dispo::before{content:"❌ INDISPONIBLE"; position:absolute; top:15px; right:15px; background:#ff3b3b; color:#fff; padding:6px 12px; border-radius:20px; font-weight:bold; font-size:12px; z-index:2;}
+.btn-indispo{background:#ccc!important; color:#666!important; cursor:not-allowed!important; pointer-events:none;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-box">
+    <img src="images/logo.png.5.png" alt="Logo Magne Invest">
+    <div>
+      <div style="font-weight:bold; font-size:20px;">MAGNE Invest IMMOBILIER</div>
+      <div class="etoiles">★★★★★ 4.9/5 (89 avis)</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end;">
+    <div>📧 cabinetmagne.investimmob10@gmail.com</div>
+    <button id="install-app" type="button" style="display:none;background:#b8960c;color:#fff;border:0;padding:10px 14px;border-radius:8px;font-weight:bold;cursor:pointer;">📲 Installer l'application</button>
+  </div>
+</header>
+
+<div class="hero-search">
+  <h1>Trouvez le bien qui change votre vie</h1>
+  <p>Terrains - Villas - Gestion Locative à Abidjan</p>
+  <div class="search-bar">
+    <select id="type-select"><option value="">Type de bien</option><option value="terrain">Terrain</option><option value="villa">Villa</option><option value="appartement">Appartement</option><option value="magasin">Magasin</option></select>
+    <select id="budget-select"><option value="">Budget</option><option value="0-10">0 - 10M</option><option value="10-30">10 - 30M</option><option value="30+">30M +</option></select>
+    <select id="zone-select">
+      <option value="">Zone</option>
+      <option value="angre">Angré</option>
+      <option value="bingerville">Bingerville</option>
+      <option value="cocody">Cocody</option>
+      <option value="bassam">Bassam</option>
+      <option value="koumassi">Koumassi</option>
+      <option value="terminus">Terminus / SICOGI</option>
+      <option value="songon">Songon</option>
+    </select>
+    <button onclick="filtrerZone()">Rechercher</button>
+  </div>
+</div>
+
+<div class="stats">
+  <div><strong>+127</strong> Biens gérés</div>
+  <div><strong>+340</strong> Clients satisfaits</div>
+  <div><strong>Depuis 2018</strong> D'expérience</div>
+</div>
+
+<!-- TES 10 SERVICES AJOUTÉS ICI -->
+<section style="padding:40px 20px; background:#fff; text-align:center;">
+  <h2 style="color:#0a1931;">📋 Nos Services Complets</h2>
+  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; max-width:1100px; margin:20px auto;">
+    <div style="background:#f5f1e8; padding:20px; border-radius:12px; border-left:4px solid #0a1931;"><div style="font-size:30px;">🏢</div><h4>Création d'Entreprise</h4></div>
+    <div style="background:#f5f1e8; padding:20px; border-radius:12px; border-left:4px solid #b8960c;"><div style="font-size:30px;">📊</div><h4>Assistance Comptable</h4></div>
+    <div style="background:#f5f1e8; padding:20px; border-radius:12px; border-left:4px solid #0a1931;"><div style="font-size:30px;">🔑</div><h4>Gestion Locative</h4></div>
+    <div style="background:#f5f1e8; padding:20px; border-radius:12px; border-left:4px solid #b8960c;"><div style="font-size:30px;">🏞️</div><h4>Vente de Terrain</h4></div>
+    <div style="background:#f5f1e8; padding:20px; border-radius:12px; border-left:4px solid #0a1931;"><div style="font-size:30px;">🚜</div><h4>Aménagement Foncier</h4></div>
+    <div style="background:#f5f1e8; padding:20px; border-radius:12px; border-left:4px solid #b8960c;"><div style="font-size:30px;">🏘️</div><h4>Lotissements</h4></div>
+    <div style="background:#f5f1e8; padding:20px; border-radius:12px; border-left:4px solid #ff3b3b;"><div style="font-size:30px;">⚠️</div><h4>Déguerpissements</h4></div>
+    <div style="background:#f5f1e8; padding:20px; border-radius:12px; border-left:4px solid #0a1931;"><div style="font-size:30px;">📋</div><h4>État des Lieux</h4></div>
+    <div style="background:#f5f1e8; padding:20px; border-radius:12px; border-left:4px solid #00c950;"><div style="font-size:30px;">👔</div><h4>Lavage de Vêtements</h4></div>
+    <div style="background:#f5f1e8; padding:20px; border-radius:12px; border-left:4px solid #0a1931;"><div style="font-size:30px;">🎓</div><h4>Insertion Professionnelle</h4></div>
+  </div>
+</section>
+
+<h2 style="text-align:center;">Nos biens exclusifs</h2>
+<p style="text-align:center; color:#FFD700; font-size:22px; text-shadow:0 0 5px rgba(0,0,0,0.2);">★★★★★<span style="color:#111; font-size:14px;"> 4.9/5 - Agence la mieux notée à Abidjan</span></p>
+
+<section class="hero">
+  <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800">
+  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800">
+  <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800" alt="villa3">
+</section>
+
+<section style="padding:40px 20px; background:#f5f5f5;">
+  <h2 style="text-align:center; color:#0a1931;">🔥 Terrains & Biens ACD à Vendre</h2>
+  <div id="liste-biens" style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-top:20px;">
+    <div class="card-bien" data-zone="angre" data-type="terrain" data-budget="30+"><h3 style="color:#0a1931;">Angré Nouveau CHU</h3><p>📍 660 M2 - ACD individuel</p><p><b>💰 130 000 000 F à débattre</b></p><a href="https://wa.me/2250788540740?text=Je suis intéressé par Angré Nouveau CHU 660M2" style="display:block; text-align:center; background:#25D366; color:white; padding:10px; border-radius:8px; text-decoration:none; margin-top:10px;">WhatsApp</a></div>
+    <div class="card-bien" data-zone="angre" data-type="terrain" data-budget="30+"><h3 style="color:#0a1931;">Angré CHU - Djorobité 2</h3><p>📍 600 M2 - Clôturé + Fondation R+1 + Permis - ACD</p><p><b>💰 100 000 000 F KO</b></p><a href="https://wa.me/2250788540740" style="display:block; text-align:center; background:#25D366; color:white; padding:10px; border-radius:8px; text-decoration:none; margin-top:10px;">WhatsApp</a></div>
+    <div class="card-bien" data-zone="angre" data-type="terrain" data-budget="30+"><h3 style="color:#0a1931;">Angré Djorobité 1</h3><p>📍 600 M2 - ACD</p><p><b>💰 95 000 000 F à débattre</b></p><a href="https://wa.me/2250788540740" style="display:block; text-align:center; background:#25D366; color:white; padding:10px; border-radius:8px; text-decoration:none; margin-top:10px;">WhatsApp</a></div>
+    <div class="card-bien" data-zone="terminus" data-type="appartement" data-budget="10-30"><h3 style="color:#0a1931;">Terminus 05 - Duplex 3P</h3><p><b>💰 27 000 000 F à débattre</b></p><a href="https://wa.me/2250153531517" style="display:block; text-align:center; background:#111; color:white; padding:10px; border-radius:8px; text-decoration:none; margin-top:10px;">WhatsApp</a></div>
+    <div class="card-bien" data-zone="terminus" data-type="appartement" data-budget="10-30"><h3 style="color:#0a1931;">SICOGI Petit Marché - 4P</h3><p><b>💰 30 000 000 F à débattre</b></p><a href="https://wa.me/2250153531517" style="display:block; text-align:center; background:#111; color:white; padding:10px; border-radius:8px; text-decoration:none; margin-top:10px;">WhatsApp</a></div>
+    <div class="card-bien" data-zone="koumassi" data-type="terrain" data-budget="10-30"><h3 style="color:#0a1931;">🔥 Koumassi Remblais</h3><p>📍 Terrain 300 M2 - ACD</p><p><b>💰 25 000 000 F</b></p><p style="color:green;">NOUVEAU</p><a href="https://wa.me/2250788540740?text=Terrain Koumassi" style="display:block; text-align:center; background:#25D366; color:white; padding:10px; border-radius:8px; text-decoration:none; margin-top:10px;">WhatsApp</a></div>
+    <div class="card-bien" data-zone="bingerville" data-type="terrain" data-budget="10-30"><h3 style="color:#0a1931;">Terrain 500m² - Bingerville</h3><p>📍 Cité ADDOHA - ACD</p><p><b>💰 15 000 000 F</b></p><a href="https://wa.me/2250788540740" style="display:block; text-align:center; background:#25D366; color:white; padding:10px; border-radius:8px; text-decoration:none; margin-top:10px;">WhatsApp</a></div>
+    <div class="card-bien" data-zone="songon" data-type="terrain" data-budget="0-10"><h3 style="color:#0a1931;">Terrain 400m² - Songon</h3><p>📍 Songon Agban - ACD</p><p><b>💰 8 500 000 F</b></p><a href="https://wa.me/2250153531517" style="display:block; text-align:center; background:#25D366; color:white; padding:10px; border-radius:8px; text-decoration:none; margin-top:10px;">WhatsApp</a></div>
+    <div class="card-bien" data-zone="terminus" data-type="magasin" data-budget="0-10"><h3 style="color:#0a1931;">🏪 Magasin à Louer - Terminus 13</h3><p>📍 Terminus 13</p><p>💰 <b>130 000 F / mois</b></p><p>🚪 Pas de porte : <b>1 300 000 F à débattre</b></p><p style="color:#00c950; font-weight:bold;">✅ Remboursable</p><a href="https://wa.me/2250788540740?text=Je suis intéressé par le Magasin Terminus 13 - 130.000F" style="display:block; text-align:center; background:#111; color:white; padding:10px; border-radius:8px; text-decoration:none; margin-top:10px;">WhatsApp</a></div>
+    <div class="card-bien non-dispo" data-zone="koumassi" data-type="magasin" data-budget="0-10">
+  <h3 style="color:#0a1931;">🏪 Magasin - Koumassi Inch'Allah</h3>
+  <p>📍 Koumassi Inch'Allah</p>
+  <p>💰 <b>400 000 F / mois</b></p>
+  <p>🚪 Pas de porte : <b>400 000 F à débattre</b></p>
+  <p style="color:#ff3b3b; font-weight:bold;">❌ Plus disponible - Loué</p>
+  <a href="#" class="btn-indispo" style="display:block; text-align:center; background:#ccc; color:#666; padding:10px; border-radius:8px; text-decoration:none; margin-top:10px;">Indisponible</a>
+</div>
+</section>
+
+<!-- SECTION VIDEO FACEBOOK AJOUTÉE -->
+<section style="padding:40px 20px; background:#fff;">
+  <h2 style="text-align:center; color:#0a1931;">🎥 Nos Visites en Vidéo</h2>
+  <p style="text-align:center; color:#666;">YouTube + Facebook + Direct</p>
+  <div class="video-grid">
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube" allowfullscreen></iframe>
+    <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Ffacebook%2Fvideos%2F10153231379946729%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+  </div>
+  <p style="text-align:center; font-size:12px; color:#888; margin-top:10px;">
+</section>
+
+<div class="galerie">
+  <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800"><img src="images/g2.jpg"><img src="images/g3.jpg"><img src="images/g4.jpg"><img src="images/g5.jpg">
+  <img src="images/g6.jpg"><img src="images/g7.jpg"><img src="images/g8.jpg"><img src="images/g9.jpg"><img src="images/g10.jpg">
+</div>
+
+<!-- ETOILES DU BAS CORRIGÉES ET VISIBLES -->
+<section style="padding:40px 20px; background:#f5f1e8; text-align:center;">
+  <h2 style="color:#0a1931;">⭐ Ce que disent nos clients</h2>
+  <div style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-top:20px;">
+    <div style="background:#fff; padding:20px; border-radius:12px; width:280px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+      <div style="color:#FFD700; font-size:24px; text-shadow:0 0 6px rgba(255,215,0,0.7);">★★★★★</div>
+      <p><i>"Service très professionnel, j'ai vendu mon terrain en 2 semaines."</i></p><strong>- M. Koné, Angré</strong>
+    </div>
+    <div style="background:#fff; padding:20px; border-radius:12px; width:280px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+      <div style="color:#FFD700; font-size:24px; text-shadow:0 0 6px rgba(255,215,0,0.7);">★★★★★</div>
+      <p><i>"Agence sérieuse, ACD vérifié, je recommande."</i></p><strong>- Mme Bamba, Bingerville</strong>
+    </div>
+    <div style="background:#fff; padding:20px; border-radius:12px; width:280px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+      <div style="color:#FFD700; font-size:24px; text-shadow:0 0 6px rgba(255,215,0,0.7);">★★★★★</div>
+      <p><i>"Location de mon magasin gérée sans stress."</i></p><strong>- M. Diallo, Koumassi</strong>
+    </div>
+  </div>
+</section>
+
+<div class="box">
+  <h3>Contact Rapide</h3>
+  <a class="btn-wa btn-wa1" href="https://wa.me/2250788540740">WhatsApp 1</a>
+  <a class="btn-wa btn-wa2" href="https://wa.me/2250153531517">WhatsApp 2</a>
+  <p><a href="mailto:cabinetmagne.investimmob10@gmail.com">cabinetmagne.investimmob10@gmail.com</a></p>
+  <div id="qrcode"></div>
+</div>
+
+<footer>
+  <div id="footer-horaire">
+    <p id="statut-ouvert" class="statut">Chargement...</p>
+    <ul class="liste-horaire" style="color:#fff;">
+      <li><span>Lundi - Vendredi</span><strong>08h00 - 18h00</strong></li>
+      <li><span>Samedi</span><strong>09h00 - 16h00</strong></li>
+      <li><span>Dimanche</span><strong style="color:#ff6b6b;">Fermé - Sur RDV</strong></li>
+    </ul>
+  </div>
+  <br>
+  <p>© 2026 Magne Invest - Site par Kevino</p>
+</footer>
+
+<a href="https://wa.me/2250788540740?text=Bonjour%20Magne%20Invest,%20je%20veux%20prendre%20rendez-vous" class="btn-rdv">📅 Prendre RDV</a>
+<a href="https://wa.me/2250153531517" class="btn-float-wa">💬</a>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script>
+function filtrerZone(){
+  const zone = document.getElementById('zone-select').value;
+  const type = document.getElementById('type-select').value;
+  const budget = document.getElementById('budget-select').value;
+  const biens = document.querySelectorAll('.card-bien');
+  biens.forEach(b => {
+    const matchZone = !zone || b.dataset.zone === zone;
+    const matchType = !type || b.dataset.type === type;
+    const matchBudget = !budget || b.dataset.budget === budget;
+    b.style.display = (matchZone && matchType && matchBudget) ? 'block' : 'none';
+  });
+}
+document.addEventListener("DOMContentLoaded", function() {
+  function checkHoraire(){
+    const now=new Date(); const jour=now.getDay(); const heure=now.getHours();
+    const s=document.getElementById('statut-ouvert'); 
+    if(!s) return;
+    let o=false;
+    if(jour>=1&&jour<=5){if(heure>=8&&heure<18)o=true;}
+    if(jour===6){if(heure>=9&&heure<16)o=true;}
+    s.textContent=o?"● Ouvert maintenant":"● Fermé - RDV possible";
+    s.className=o?"statut ouvert":"statut ferme-now";
+  }
+  checkHoraire();
+  new QRCode(document.getElementById("qrcode"),{text:"https://site-cabinetmagne-invest.com",width:120,height:120});
+  // Installation de l'application (PWA) — n'altère pas le fonctionnement du site.
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('./sw.js').catch(err => console.warn('PWA:', err));
+  }
+
+  let deferredInstallPrompt = null;
+  const installBtn = document.getElementById('install-app');
+
+  window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    deferredInstallPrompt = event;
+    if (installBtn) installBtn.style.display = 'inline-block';
+  });
+
+  if (installBtn) {
+    installBtn.addEventListener('click', async () => {
+      if (!deferredInstallPrompt) return;
+      deferredInstallPrompt.prompt();
+      await deferredInstallPrompt.userChoice;
+      deferredInstallPrompt = null;
+      installBtn.style.display = 'none';
+    });
+  }
+
+  window.addEventListener('appinstalled', () => {
+    if (installBtn) installBtn.style.display = 'none';
+  });
+});
+</script>
+</body>
+</html>
